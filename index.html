@@ -1,532 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bangkok Thai Restaurant & Pho 911 — Champaign-Urbana, IL</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --gold:#C9921A;
-      --gold-light:#F5E6C0;
-      --red:#8B1A1A;
-      --cream:#FAF6EF;
-      --dark:#1A1208;
-      --text:#3D2B0E;
-      --muted:#7A6548;
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bangkok Thai & Pho 911 — 410 E Green St, Champaign IL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0F1A0F;
+  --bg2:#162016;
+  --green:#1E3A1E;
+  --lime:#B8E04A;
+  --white:#F0EDE4;
+  --chalk:#D4CFC3;
+  --orange:#E8622A;
+  --yellow:#F2C94C;
+  --dim:#6B7C6B;
+  --mono:'IBM Plex Mono',monospace;
+  --display:'Bebas Neue',sans-serif;
+  --hand:'Caveat',cursive;
+  --serif:'Newsreader',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--serif);overflow-x:hidden}
 
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(250,246,239,0.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,146,26,0.2)}
-    .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--red);letter-spacing:0.02em;text-decoration:none}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{text-decoration:none;font-size:0.85rem;font-weight:500;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
-    .nav-links a:hover{color:var(--gold)}
-    .nav-order{background:var(--red);color:#fff;padding:0.5rem 1.25rem;border-radius:2px;font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
-    .nav-order:hover{background:#6B1212}
-    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 2rem;border-bottom:1px solid rgba(184,224,74,0.2);background:rgba(15,26,15,0.95);backdrop-filter:blur(4px)}
+.nav-name{font-family:var(--display);font-size:1.5rem;letter-spacing:0.05em;color:var(--lime);line-height:1;text-decoration:none}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:0.68rem;color:var(--dim);text-decoration:none;padding:0.4rem 1rem;border-left:1px solid rgba(184,224,74,0.1);transition:color 0.15s,background 0.15s;letter-spacing:0.1em;text-transform:uppercase}
+.nav-links a:hover{color:var(--lime);background:rgba(184,224,74,0.06)}
+.nav-order{font-family:var(--mono);font-size:0.68rem;background:var(--lime);color:var(--bg);padding:0.5rem 1.25rem;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:opacity 0.15s;white-space:nowrap}
+.nav-order:hover{opacity:0.85}
 
-    /* HERO */
-    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:70px;overflow:hidden}
-    .hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 5rem 4rem}
-    .hero-tag{font-size:0.75rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
-    .hero-tag::before{content:'';width:32px;height:1px;background:var(--gold)}
-    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,5.5rem);line-height:1.05;color:var(--dark);margin-bottom:1.5rem}
-    .hero-title em{color:var(--red);font-style:italic}
-    .hero-desc{font-size:1rem;line-height:1.8;color:var(--muted);max-width:420px;margin-bottom:2.5rem}
-    .hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-    .btn-primary{background:var(--red);color:#fff;padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;display:inline-block}
-    .btn-primary:hover{background:#6B1212}
-    .btn-secondary{border:1.5px solid var(--gold);color:var(--gold);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;display:inline-block}
-    .btn-secondary:hover{background:var(--gold);color:#fff}
-    .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,146,26,0.25)}
-    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--dark)}
-    .stat-label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem}
-    .hero-right{position:relative;overflow:hidden;background:var(--dark)}
-    .hero-img-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;height:100%;gap:2px}
-    .hero-img-grid div{overflow:hidden;background:#2A1E0A}
-    .hero-img-grid div img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 0.6s;display:block}
-    .hero-img-grid div:hover img{transform:scale(1.05)}
-    .hero-img-grid div:first-child{grid-row:span 2}
-    .hero-badge{position:absolute;bottom:2rem;left:-1rem;background:var(--gold);color:var(--dark);padding:1rem 1.5rem;border-radius:2px;font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;z-index:10;box-shadow:4px 4px 0 var(--red)}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem 2rem 3rem;padding-top:80px;position:relative;overflow:hidden}
+.hero-big{font-family:var(--display);font-size:clamp(5rem,17vw,21rem);line-height:0.88;color:var(--white);letter-spacing:-0.01em;position:relative;z-index:2}
+.hero-big .lime{color:var(--lime)}
+.hero-big .stroke{-webkit-text-stroke:2px var(--white);color:transparent}
+.hero-sub{display:flex;align-items:flex-end;justify-content:space-between;margin-top:2rem;border-top:1px solid rgba(184,224,74,0.25);padding-top:1.5rem;position:relative;z-index:2;flex-wrap:wrap;gap:1.5rem}
+.hero-address{font-family:var(--mono);font-size:0.7rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;line-height:2}
+.hero-tag-pill{font-family:var(--hand);font-size:1.6rem;color:var(--bg);background:var(--lime);padding:0.2rem 1rem;transform:rotate(-2deg);display:inline-block;line-height:1.4;margin-top:0.75rem}
+.hero-stats-row{display:flex;gap:2.5rem}
+.hero-stat-n{font-family:var(--display);font-size:2.5rem;color:var(--lime);line-height:1;text-align:right}
+.hero-stat-l{font-family:var(--mono);font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;text-align:right}
+.hero-bg-text{position:absolute;bottom:-3rem;right:-1rem;font-family:var(--display);font-size:clamp(8rem,28vw,36rem);color:rgba(184,224,74,0.04);line-height:1;pointer-events:none;white-space:nowrap;user-select:none;z-index:1}
 
-    /* TICKER */
-    .ticker{background:var(--red);color:var(--gold-light);padding:0.7rem 0;overflow:hidden;white-space:nowrap}
-    .ticker-inner{display:inline-flex;animation:ticker 22s linear infinite}
-    .ticker-item{display:inline-block;padding:0 2rem;font-size:0.8rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase}
-    .ticker-dot{color:var(--gold);display:inline-block;padding:0 1rem}
-    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;border-top:1px solid rgba(184,224,74,0.2);border-bottom:1px solid rgba(184,224,74,0.2);background:var(--green);padding:0.6rem 0}
+.marquee-inner{display:inline-flex;white-space:nowrap;animation:scroll 28s linear infinite}
+.marquee-inner:hover{animation-play-state:paused}
+.mi{font-family:var(--mono);font-size:0.7rem;color:var(--lime);letter-spacing:0.2em;text-transform:uppercase;padding:0 1.5rem}
+.ms{color:var(--orange);padding:0 0.25rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    /* SECTIONS */
-    .section{padding:5rem 4rem}
-    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
-    .section-label{font-size:0.72rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
-    .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;color:var(--dark)}
-    .section-title em{color:var(--red);font-style:italic}
+/* LAYOUT */
+.wrap{max-width:1400px;margin:0 auto;padding:5rem 2rem}
 
-    /* MENU GRID */
-    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-    .menu-card{background:#fff;border:1px solid rgba(201,146,26,0.15);border-radius:2px;overflow:hidden;transition:box-shadow 0.3s,transform 0.3s;cursor:default}
-    .menu-card:hover{box-shadow:0 8px 32px rgba(139,26,26,0.12);transform:translateY(-4px)}
-    .menu-card-img{height:200px;overflow:hidden;background:#F0EAE0;position:relative}
-    .menu-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}
-    .menu-card:hover .menu-card-img img{transform:scale(1.06)}
-    .spice-badge{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:0.65rem;font-weight:500;letter-spacing:0.1em;padding:4px 10px;border-radius:2px;text-transform:uppercase}
-    .menu-card-body{padding:1.25rem}
-    .menu-item-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--dark);margin-bottom:0.5rem}
-    .menu-item-desc{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
-    .menu-item-footer{display:flex;align-items:center;justify-content:space-between}
-    .menu-price{font-weight:500;color:var(--gold);font-size:1rem}
-    .spice-dots{display:flex;gap:3px}
-    .spice-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-light)}
-    .spice-dot.active{background:var(--red)}
+/* ABOUT */
+.s-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--orange);margin-bottom:0.5rem}
+.s-title{font-family:var(--display);font-size:clamp(3rem,6vw,7rem);color:var(--white);line-height:0.9;letter-spacing:0.02em;margin-bottom:0}
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:5rem;align-items:start;margin-top:4rem}
+.about-body{font-family:var(--serif);font-size:1.08rem;line-height:1.9;color:var(--chalk);font-style:italic}
+.about-body p+p{margin-top:1.25rem}
+.about-callout{font-family:var(--hand);font-size:2rem;color:var(--lime);line-height:1.35;border-left:3px solid var(--orange);padding-left:1.25rem;margin-top:2.5rem}
+.about-right{position:sticky;top:5rem}
+.heat-block{background:var(--green);padding:1.75rem;margin-bottom:1.25rem}
+.heat-title{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lime);margin-bottom:1.25rem}
+.heat-bars{display:flex;flex-direction:column;gap:0.55rem}
+.heat-row{display:flex;align-items:center;gap:0.75rem}
+.heat-lbl{font-family:var(--mono);font-size:0.62rem;color:var(--dim);width:1.25rem;text-align:right;flex-shrink:0}
+.heat-bar{flex:1;height:5px;background:rgba(255,255,255,0.07)}
+.heat-fill{height:100%}
+.hf1{background:#6ABF47;width:16%}
+.hf2{background:#96C93D;width:33%}
+.hf3{background:#D4C026;width:50%}
+.hf4{background:#E8852A;width:66%}
+.hf5{background:#E84E2A;width:83%}
+.hf6{background:#CC1A1A;width:100%}
+.heat-note{font-family:var(--hand);font-size:1.05rem;color:var(--dim);margin-top:0.9rem}
+.hours-block{background:rgba(184,224,74,0.05);border:1px solid rgba(184,224,74,0.15);padding:1.5rem}
+.hours-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:0.7rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:var(--dim);text-transform:uppercase;letter-spacing:0.08em}
+.hours-time{color:var(--white)}
 
-    /* SIGNATURE / ABOUT */
-    .signature-section{background:var(--dark);padding:5rem 4rem;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-    .sig-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .sig-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,3.2rem);line-height:1.15;color:#FAF6EF;margin-bottom:1.5rem}
-    .sig-desc{font-size:0.95rem;line-height:1.85;color:rgba(250,246,239,0.65);margin-bottom:1.5rem}
-    .spice-scale{background:rgba(255,255,255,0.05);border:1px solid rgba(201,146,26,0.25);border-radius:2px;padding:1.5rem;margin-top:0.5rem}
-    .spice-scale-title{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .spice-levels{display:flex;gap:0.5rem;align-items:center;margin-bottom:0.75rem}
-    .spice-level{flex:1;text-align:center;padding:0.5rem 0.25rem;border-radius:2px;font-size:0.7rem;font-weight:500;letter-spacing:0.05em}
-    .sl-1{background:rgba(250,230,192,0.2);color:var(--gold-light)}
-    .sl-2{background:rgba(250,200,100,0.25);color:#F5D580}
-    .sl-3{background:rgba(240,140,50,0.25);color:#F0A050}
-    .sl-4{background:rgba(220,80,30,0.25);color:#E07850}
-    .sl-5{background:rgba(180,40,20,0.3);color:#E06050}
-    .sl-6{background:rgba(139,26,26,0.5);color:#FF8080}
-    .spice-note{font-size:0.75rem;color:rgba(250,246,239,0.4)}
-    .sig-image{position:relative}
-    .sig-image-main{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block}
-    .sig-image-accent{position:absolute;bottom:-2rem;right:-2rem;width:55%;aspect-ratio:1;object-fit:cover;border-radius:2px;border:4px solid var(--dark)}
+/* MENU */
+.menu-section{background:var(--bg2);padding:5rem 0}
+.menu-header{padding:0 2rem;margin-bottom:2.5rem;max-width:1400px;margin-left:auto;margin-right:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-bottom:1px solid rgba(184,224,74,0.15);padding-bottom:2rem}
+.menu-note{font-family:var(--hand);font-size:1.25rem;color:var(--orange)}
+.menu-note2{font-family:var(--mono);font-size:0.62rem;color:var(--dim);margin-top:0.35rem;text-transform:uppercase;letter-spacing:0.1em}
 
-    /* REVIEWS */
-    .reviews-section{padding:5rem 4rem;background:#F5F0E8}
-    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-    .review-card{background:#fff;padding:1.75rem;border-radius:2px;border:1px solid rgba(201,146,26,0.15)}
-    .review-quote{font-family:'Playfair Display',serif;font-size:3rem;line-height:0.8;color:var(--gold);opacity:0.4;margin-bottom:0.5rem}
-    .review-text{font-size:0.9rem;line-height:1.75;color:var(--text);font-style:italic;margin-bottom:1.25rem}
-    .review-author{font-size:0.8rem;font-weight:500;color:var(--dark);text-transform:uppercase;letter-spacing:0.1em}
-    .review-stars{color:var(--gold);font-size:0.9rem;margin-top:0.35rem}
-    .featured-review{background:var(--red);border-color:var(--red)}
-    .featured-review .review-text{color:rgba(250,246,239,0.9)}
-    .featured-review .review-author{color:var(--gold-light)}
-    .featured-review .review-stars{color:var(--gold-light)}
-    .featured-review .review-quote{color:rgba(250,246,239,0.25)}
+.menu-body{max-width:1400px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(184,224,74,0.1)}
+.menu-cat{padding:2rem 1.5rem 2rem 0;border-bottom:1px solid rgba(184,224,74,0.08);border-right:1px solid rgba(184,224,74,0.08)}
+.menu-cat:nth-child(even){padding-left:1.5rem;padding-right:0;border-right:none}
+.menu-cat:nth-last-child(1),.menu-cat:nth-last-child(2){border-bottom:none}
+.cat-title{font-family:var(--display);font-size:1.9rem;color:var(--lime);letter-spacing:0.04em;margin-bottom:0.15rem;line-height:1}
+.cat-sub{font-family:var(--hand);font-size:0.95rem;color:var(--dim);margin-bottom:1rem}
+.menu-items{display:flex;flex-direction:column}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:0.42rem 0;border-bottom:1px dashed rgba(255,255,255,0.06)}
+.menu-item:last-child{border-bottom:none}
+.item-name{font-family:var(--serif);font-size:0.92rem;color:var(--chalk)}
+.item-name em{font-style:italic;color:var(--dim);font-size:0.78rem;margin-left:0.4rem}
+.item-price{font-family:var(--mono);font-size:0.75rem;color:var(--yellow);white-space:nowrap;margin-left:1rem;flex-shrink:0}
+.item-price.ask{color:var(--dim)}
+.cat-note{font-family:var(--hand);font-size:0.9rem;color:var(--orange);margin-top:0.6rem}
 
-    /* LOCATIONS */
-    .locations-section{padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-    .location-card{background:#fff;border:1px solid rgba(201,146,26,0.2);border-radius:2px;padding:2rem;margin-bottom:1.5rem}
-    .location-name{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--dark);margin-bottom:0.5rem}
-    .location-tag{display:inline-block;background:var(--gold-light);color:#7A4E10;font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:1rem}
-    .location-details{display:flex;flex-direction:column;gap:0.5rem}
-    .location-row{display:flex;gap:0.75rem;align-items:flex-start;font-size:0.85rem;color:var(--muted)}
-    .hours-grid{display:grid;grid-template-columns:auto 1fr;gap:0.3rem 1.5rem;font-size:0.82rem;margin-top:0.75rem}
-    .hours-day{color:var(--muted)}
-    .hours-time{color:var(--text);font-weight:500}
-    .map-placeholder{background:var(--dark);border-radius:2px;overflow:hidden}
-    .order-btn-big{display:inline-block;background:var(--gold);color:var(--dark);padding:0.9rem 1.75rem;border-radius:2px;font-size:0.82rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;margin-top:1.25rem;transition:background 0.2s}
-    .order-btn-big:hover{background:#B8821A}
+/* REVIEWS */
+.reviews-outer{padding:5rem 2rem;max-width:1400px;margin:0 auto}
+.reviews-wall{margin-top:3rem;display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+.rv{padding:1.5rem;border:1px solid rgba(255,255,255,0.07)}
+.rv.big{grid-column:span 5;background:var(--green)}
+.rv.med{grid-column:span 4}
+.rv.sm{grid-column:span 3;background:rgba(184,224,74,0.04)}
+.rv.wide{grid-column:span 7}
+.rv.narrow{grid-column:span 5}
+.rv-text{font-family:var(--serif);font-style:italic;font-size:0.9rem;line-height:1.75;color:var(--chalk);margin-bottom:0.85rem}
+.rv.big .rv-text{font-size:1.1rem}
+.rv-author{font-family:var(--mono);font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em}
+.rv-stars{font-size:0.7rem;color:var(--yellow);margin-bottom:0.4rem}
+.rv-pull{font-family:var(--display);font-size:3rem;color:var(--lime);line-height:1;margin-bottom:0.5rem;opacity:0.5}
 
-    /* FOOTER */
-    footer{background:var(--dark);color:rgba(250,246,239,0.6);padding:4rem 4rem 3rem}
-    .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
-    .footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;color:#FAF6EF;margin-bottom:0.75rem}
-    .footer-tagline{font-size:0.85rem;line-height:1.7;max-width:280px;margin-bottom:1.75rem;color:rgba(250,246,239,0.5)}
-    .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
-    .footer-links a{color:rgba(250,246,239,0.5);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
-    .footer-links a:hover{color:var(--gold)}
-    .footer-col-title{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(250,246,239,0.25);flex-wrap:wrap;gap:0.5rem}
+/* LOCATIONS */
+.loc-section{background:var(--green);padding:5rem 2rem}
+.loc-inner{max-width:1400px;margin:0 auto}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.loc-card{border:1px solid rgba(184,224,74,0.18);padding:2.5rem;background:rgba(0,0,0,0.2)}
+.loc-num{font-family:var(--display);font-size:5rem;color:rgba(184,224,74,0.08);line-height:1;margin-bottom:-0.5rem}
+.loc-name{font-family:var(--display);font-size:2.4rem;color:var(--white);letter-spacing:0.03em;line-height:1;margin-bottom:0.35rem}
+.loc-addr{font-family:var(--mono);font-size:0.7rem;color:var(--lime);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.loc-info{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem}
+.loc-row{font-family:var(--serif);font-size:0.88rem;color:var(--chalk);display:flex;gap:0.75rem;align-items:flex-start}
+.loc-key{font-family:var(--mono);font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;min-width:72px;flex-shrink:0;margin-top:3px}
+.loc-btns{display:flex;gap:0.75rem;flex-wrap:wrap}
+.loc-cta{display:inline-block;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.75rem 1.5rem;text-decoration:none;transition:all 0.15s}
+.loc-cta.primary{background:var(--lime);color:var(--bg)}
+.loc-cta.primary:hover{opacity:0.85}
+.loc-cta.outline{border:1px solid rgba(184,224,74,0.4);color:var(--lime)}
+.loc-cta.outline:hover{background:rgba(184,224,74,0.08)}
 
-    /* MOBILE */
-    @media(max-width:900px){
-      nav{padding:1rem 1.5rem}
-      .nav-links,.nav-order{display:none}
-      .nav-hamburger{display:flex}
-      .hero{grid-template-columns:1fr;min-height:auto}
-      .hero-left{padding:4rem 1.5rem 3rem}
-      .hero-right{height:55vw;min-height:300px}
-      .hero-stats{gap:1.5rem}
-      .section{padding:3.5rem 1.5rem}
-      .menu-grid{grid-template-columns:1fr}
-      .signature-section{grid-template-columns:1fr;padding:3.5rem 1.5rem;gap:3rem}
-      .sig-image-accent{display:none}
-      .reviews-section{padding:3.5rem 1.5rem}
-      .reviews-grid{grid-template-columns:1fr}
-      .locations-section{grid-template-columns:1fr;padding:3.5rem 1.5rem;gap:2rem}
-      .footer-inner{grid-template-columns:1fr;gap:2.5rem}
-      footer{padding:3rem 1.5rem 2rem}
-      .footer-bottom{padding-top:1.25rem}
-      .section-header{flex-direction:column;align-items:flex-start}
-      .hero-badge{left:0.5rem}
-    }
-    @media(max-width:600px){
-      .hero-title{font-size:2.5rem}
-      .hero-stats{flex-wrap:wrap;gap:1.25rem}
-    }
-  </style>
+/* FOOTER */
+footer{background:#080F08;border-top:1px solid rgba(184,224,74,0.12);padding:3rem 2rem 2rem}
+.footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:3fr 1fr 1fr;gap:4rem;margin-bottom:2.5rem}
+.footer-mark{font-family:var(--display);font-size:2.8rem;color:var(--lime);letter-spacing:0.04em;line-height:1;margin-bottom:0.4rem}
+.footer-tagline{font-family:var(--hand);font-size:1.15rem;color:var(--dim);margin-bottom:1.5rem}
+.footer-col-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.footer-links a{font-family:var(--mono);font-size:0.72rem;color:var(--dim);text-decoration:none;transition:color 0.15s}
+.footer-links a:hover{color:var(--lime)}
+.footer-bottom{max-width:1400px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.05);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+.footer-bottom span{font-family:var(--mono);font-size:0.62rem;color:rgba(255,255,255,0.18);letter-spacing:0.08em}
+
+/* MOBILE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-right{position:static}
+  .menu-body{grid-template-columns:1fr}
+  .menu-cat,.menu-cat:nth-child(even){padding-left:0;padding-right:0;border-right:none}
+  .reviews-wall{grid-template-columns:1fr 1fr}
+  .rv,.rv.big,.rv.med,.rv.sm,.rv.wide,.rv.narrow{grid-column:span 1}
+  .rv.big,.rv.wide{grid-column:span 2}
+  .loc-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:2.5rem}
+  nav{padding:0.75rem 1rem}
+}
+@media(max-width:600px){
+  .hero-big{font-size:clamp(3.5rem,19vw,6rem)}
+  .hero-sub{flex-direction:column;align-items:flex-start}
+  .reviews-wall{grid-template-columns:1fr}
+  .rv.big,.rv.wide{grid-column:span 1}
+  .hero-stats-row{gap:1.5rem}
+  .wrap{padding:3.5rem 1rem}
+  .menu-body,.menu-header{padding:0 1rem}
+  .loc-section,.reviews-outer{padding:3.5rem 1rem}
+}
+</style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">Bangkok Thai &amp; Pho 911</a>
+  <a href="#" class="nav-name">Bangkok Thai</a>
   <ul class="nav-links">
-    <li><a href="#menu">Menu</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#locations">Locations</a></li>
   </ul>
-  <a href="https://www.grubhub.com/restaurant/bangkok-thai-restaurant-1104-n-cunningham-ave-urbana/471011" class="nav-order" target="_blank" rel="noopener">Order Online</a>
-  <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex';document.querySelector('.nav-links').style.flexDirection='column';document.querySelector('.nav-links').style.position='fixed';document.querySelector('.nav-links').style.top='64px';document.querySelector('.nav-links').style.left='0';document.querySelector('.nav-links').style.right='0';document.querySelector('.nav-links').style.background='rgba(250,246,239,0.98)';document.querySelector('.nav-links').style.padding='1.5rem 2rem';document.querySelector('.nav-links').style.borderBottom='1px solid rgba(201,146,26,0.2)'">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://www.grubhub.com/restaurant/bangkok-thai-restaurant-1104-n-cunningham-ave-urbana/471011" class="nav-order" target="_blank" rel="noopener">Order →</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Champaign–Urbana's Favorite Thai</div>
-    <h1 class="hero-title">Authentic<br>Thai, <em>Bold</em><br>Flavors</h1>
-    <p class="hero-desc">From pad thai and green curry to rich pho broth — real Thai heat, generous portions, and a campus institution since before you were a student.</p>
-    <div class="hero-actions">
-      <a href="https://www.grubhub.com/restaurant/bangkok-thai-restaurant-1104-n-cunningham-ave-urbana/471011" class="btn-primary" target="_blank" rel="noopener">Order Now</a>
-      <a href="#menu" class="btn-secondary">See Menu</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="stat-num">800+</div><div class="stat-label">Google Reviews</div></div>
-      <div><div class="stat-num">4.5 ★</div><div class="stat-label">Rating</div></div>
-      <div><div class="stat-num">Spice 1–6</div><div class="stat-label">Your Heat Level</div></div>
-    </div>
+  <div class="hero-bg-text" aria-hidden="true">PHO</div>
+  <div class="hero-big">
+    <div>BANGKOK</div>
+    <div class="lime">THAI</div>
+    <div class="stroke">&amp; PHO</div>
+    <div>911</div>
   </div>
-  <div class="hero-right">
-    <div class="hero-img-grid">
-      <div><img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=700&q=80" alt="Pad Thai noodles"></div>
-      <div><img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=500&q=80" alt="Thai green curry"></div>
-      <div><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80" alt="Pho soup"></div>
+  <div class="hero-sub">
+    <div>
+      <div class="hero-address">
+        410 E Green St — Champaign, IL<br>
+        1104 N Cunningham Ave — Urbana, IL<br>
+        (217) 954-1641
+      </div>
+      <div><span class="hero-tag-pill">Real Thai Heat. No Apologies.</span></div>
     </div>
-    <div class="hero-badge">"Best restaurant<br>on Green St."</div>
+    <div class="hero-stats-row">
+      <div>
+        <div class="hero-stat-n">4.5★</div>
+        <div class="hero-stat-l">Google Rating</div>
+      </div>
+      <div>
+        <div class="hero-stat-n">800+</div>
+        <div class="hero-stat-l">Reviews</div>
+      </div>
+      <div>
+        <div class="hero-stat-n">1–6</div>
+        <div class="hero-stat-l">Spice Levels</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-inner">
-    <span class="ticker-item">Pad Thai</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Green Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Yellow Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Cashew Chicken</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Pineapple Fried Rice</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Pho</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Basil Chicken</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Panang Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Crab Rangoon</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Pad See Ew</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Massaman Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Thai Iced Tea</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Pad Thai</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Green Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Yellow Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Cashew Chicken</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Pineapple Fried Rice</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Pho</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Basil Chicken</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Panang Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Crab Rangoon</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Pad See Ew</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Massaman Curry</span><span class="ticker-dot">✦</span>
-    <span class="ticker-item">Thai Iced Tea</span><span class="ticker-dot">✦</span>
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-inner">
+    <span class="mi">Pad Thai</span><span class="ms">×</span>
+    <span class="mi">Green Curry</span><span class="ms">×</span>
+    <span class="mi">Yellow Curry</span><span class="ms">×</span>
+    <span class="mi">Cashew Chicken</span><span class="ms">×</span>
+    <span class="mi">Pineapple Fried Rice</span><span class="ms">×</span>
+    <span class="mi">Pho</span><span class="ms">×</span>
+    <span class="mi">Basil Catfish</span><span class="ms">×</span>
+    <span class="mi">Panang Curry</span><span class="ms">×</span>
+    <span class="mi">Crab Rangoon</span><span class="ms">×</span>
+    <span class="mi">Pad See Ew</span><span class="ms">×</span>
+    <span class="mi">Massaman Curry</span><span class="ms">×</span>
+    <span class="mi">Thai Iced Tea</span><span class="ms">×</span>
+    <span class="mi">Mango Sticky Rice</span><span class="ms">×</span>
+    <span class="mi">Tom Kha</span><span class="ms">×</span>
+    <span class="mi">Pad Thai</span><span class="ms">×</span>
+    <span class="mi">Green Curry</span><span class="ms">×</span>
+    <span class="mi">Yellow Curry</span><span class="ms">×</span>
+    <span class="mi">Cashew Chicken</span><span class="ms">×</span>
+    <span class="mi">Pineapple Fried Rice</span><span class="ms">×</span>
+    <span class="mi">Pho</span><span class="ms">×</span>
+    <span class="mi">Basil Catfish</span><span class="ms">×</span>
+    <span class="mi">Panang Curry</span><span class="ms">×</span>
+    <span class="mi">Crab Rangoon</span><span class="ms">×</span>
+    <span class="mi">Pad See Ew</span><span class="ms">×</span>
+    <span class="mi">Massaman Curry</span><span class="ms">×</span>
+    <span class="mi">Thai Iced Tea</span><span class="ms">×</span>
+    <span class="mi">Mango Sticky Rice</span><span class="ms">×</span>
+    <span class="mi">Tom Kha</span><span class="ms">×</span>
   </div>
 </div>
 
-<!-- MENU -->
-<section class="section" id="menu">
-  <div class="section-header">
-    <div>
-      <div class="section-label">What We're Known For</div>
-      <h2 class="section-title">Fan <em>Favorites</em></h2>
-    </div>
-    <a href="https://bangkokthairestaurantpho911.shop/menu" class="btn-secondary" target="_blank" rel="noopener">Full Menu →</a>
-  </div>
-  <div class="menu-grid">
-
-    <div class="menu-card">
-      <div class="menu-card-img">
-        <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=600&q=80" alt="Pad Thai">
-        <div class="spice-badge">Most Ordered</div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="s-label">Est. Green Street, Champaign IL</div>
+    <h2 class="s-title">THE REAL<br>THING</h2>
+    <div class="about-grid">
+      <div>
+        <div class="about-body">
+          <p>Bangkok Thai isn't dressed up. No mood lighting, no padded booth — just a counter, a wok, and cooks who actually know what they're doing. The kind of place where the food is the whole point.</p>
+          <p>Most Thai places in America quietly dial back the spice. We don't. Order a 4 and you'll feel it. Order a 6 and you'll remember it. The flavors are real: aromatic, fermented, layered, and genuinely hot.</p>
+          <p>Students have been coming here for decades. Alumni drive back for it during homecoming. One reviewer wrote she dreams about it when she leaves Champaign. That's not marketing — that's just what happens when the food is actually good.</p>
+        </div>
+        <div class="about-callout">
+          "Best restaurant on Green St. Period."<br>
+          <span style="font-size:1rem;color:var(--dim)">— Claire Qin, UIUC student</span>
+        </div>
       </div>
-      <div class="menu-card-body">
-        <div class="menu-item-name">Pad Thai</div>
-        <div class="menu-item-desc">Stir-fried rice noodles with egg, bean sprouts, green onion, and your choice of chicken, beef, shrimp, or tofu.</div>
-        <div class="menu-item-footer">
-          <span class="menu-price">from $11</span>
-          <div class="spice-dots">
-            <div class="spice-dot active"></div><div class="spice-dot active"></div>
-            <div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div>
+      <div class="about-right">
+        <div class="heat-block">
+          <div class="heat-title">// Spice Scale 1 → 6</div>
+          <div class="heat-bars">
+            <div class="heat-row"><span class="heat-lbl">1</span><div class="heat-bar"><div class="heat-fill hf1"></div></div><span style="font-family:var(--mono);font-size:0.6rem;color:var(--dim);margin-left:0.5rem">mild</span></div>
+            <div class="heat-row"><span class="heat-lbl">2</span><div class="heat-bar"><div class="heat-fill hf2"></div></div><span style="font-family:var(--mono);font-size:0.6rem;color:var(--dim);margin-left:0.5rem">light</span></div>
+            <div class="heat-row"><span class="heat-lbl">3</span><div class="heat-bar"><div class="heat-fill hf3"></div></div><span style="font-family:var(--mono);font-size:0.6rem;color:var(--dim);margin-left:0.5rem">medium</span></div>
+            <div class="heat-row"><span class="heat-lbl">4</span><div class="heat-bar"><div class="heat-fill hf4"></div></div><span style="font-family:var(--mono);font-size:0.6rem;color:var(--dim);margin-left:0.5rem">hot</span></div>
+            <div class="heat-row"><span class="heat-lbl">5</span><div class="heat-bar"><div class="heat-fill hf5"></div></div><span style="font-family:var(--mono);font-size:0.6rem;color:var(--dim);margin-left:0.5rem">very hot</span></div>
+            <div class="heat-row"><span class="heat-lbl">6</span><div class="heat-bar"><div class="heat-fill hf6"></div></div><span style="font-family:var(--mono);font-size:0.6rem;color:var(--dim);margin-left:0.5rem">fire</span></div>
           </div>
+          <div class="heat-note">Start at 3. 6 is not a joke.</div>
+        </div>
+        <div class="hours-block">
+          <div style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem">// Hours</div>
+          <div class="hours-row"><span class="hours-day">Mon – Fri</span><span class="hours-time">11am – 9:30pm</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">11:30am – 9pm</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">11:30am – 9pm</span></div>
+          <div style="font-family:var(--hand);font-size:1rem;color:var(--dim);margin-top:0.75rem">Walk-in only. No reservations needed.</div>
         </div>
       </div>
     </div>
-
-    <div class="menu-card">
-      <div class="menu-card-img">
-        <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80" alt="Green Curry">
-      </div>
-      <div class="menu-card-body">
-        <div class="menu-item-name">Green Curry</div>
-        <div class="menu-item-desc">Coconut milk green curry with bamboo shoots, bell peppers, and Thai basil. Genuinely spicy at higher levels.</div>
-        <div class="menu-item-footer">
-          <span class="menu-price">from $12</span>
-          <div class="spice-dots">
-            <div class="spice-dot active"></div><div class="spice-dot active"></div>
-            <div class="spice-dot active"></div><div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-card-img">
-        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Pho">
-        <div class="spice-badge">Best Pho in C-U</div>
-      </div>
-      <div class="menu-card-body">
-        <div class="menu-item-name">Pho</div>
-        <div class="menu-item-desc">Rich, aromatic beef broth with rice noodles. Available with rare brisket, meatballs, and traditional garnishes.</div>
-        <div class="menu-item-footer">
-          <span class="menu-price">from $12</span>
-          <div class="spice-dots">
-            <div class="spice-dot active"></div><div class="spice-dot"></div>
-            <div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-card-img">
-        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&q=80" alt="Pineapple Fried Rice">
-      </div>
-      <div class="menu-card-body">
-        <div class="menu-item-name">Pineapple Fried Rice</div>
-        <div class="menu-item-desc">Fragrant jasmine rice wok-tossed with pineapple, cashews, and your choice of protein. A sweet-savory legend.</div>
-        <div class="menu-item-footer">
-          <span class="menu-price">from $13</span>
-          <div class="spice-dots">
-            <div class="spice-dot active"></div><div class="spice-dot"></div>
-            <div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-card-img">
-        <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80" alt="Cashew Chicken">
-        <div class="spice-badge">Staff Pick</div>
-      </div>
-      <div class="menu-card-body">
-        <div class="menu-item-name">Cashew Chicken</div>
-        <div class="menu-item-desc">Wok-fried chicken with roasted cashews, dried chilies, and a savory sauce. "Unreal delicious" — regulars agree.</div>
-        <div class="menu-item-footer">
-          <span class="menu-price">from $12</span>
-          <div class="spice-dots">
-            <div class="spice-dot active"></div><div class="spice-dot active"></div>
-            <div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-card-img">
-        <img src="https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600&q=80" alt="Yellow Curry">
-      </div>
-      <div class="menu-card-body">
-        <div class="menu-item-name">Yellow Curry</div>
-        <div class="menu-item-desc">Turmeric-laced coconut curry, fragrant and slightly milder. Called the most popular curry by regulars for years running.</div>
-        <div class="menu-item-footer">
-          <span class="menu-price">from $12</span>
-          <div class="spice-dots">
-            <div class="spice-dot active"></div><div class="spice-dot active"></div>
-            <div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div><div class="spice-dot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ABOUT / SPICE -->
-<section class="signature-section" id="about">
-  <div>
-    <div class="sig-label">Our Promise</div>
-    <h2 class="sig-title">Real Heat.<br>Real Thai.</h2>
-    <p class="sig-desc">Unlike most Thai restaurants in the US, we don't tone down the spice. Our dishes reflect genuine Thai flavor profiles — aromatic, bold, and made fresh to order. Choose your heat level and we'll deliver exactly what you asked for.</p>
-    <p class="sig-desc">From day one, Bangkok Thai has been a campus staple. Students, professors, alumni coming back for homecoming — they all return for the same thing: food that actually tastes like Thailand.</p>
-    <div class="spice-scale">
-      <div class="spice-scale-title">Our Spice Scale — 1 to 6</div>
-      <div class="spice-levels">
-        <div class="spice-level sl-1">1<br><span style="font-size:0.6rem;opacity:0.7">Mild</span></div>
-        <div class="spice-level sl-2">2<br><span style="font-size:0.6rem;opacity:0.7">Light</span></div>
-        <div class="spice-level sl-3">3<br><span style="font-size:0.6rem;opacity:0.7">Medium</span></div>
-        <div class="spice-level sl-4">4<br><span style="font-size:0.6rem;opacity:0.7">Hot</span></div>
-        <div class="spice-level sl-5">5<br><span style="font-size:0.6rem;opacity:0.7">Very Hot</span></div>
-        <div class="spice-level sl-6">6<br><span style="font-size:0.6rem;opacity:0.7">Fire</span></div>
-      </div>
-      <div class="spice-note">Level 3 is a good starting point. Level 6 is not a joke.</div>
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <div>
+      <div class="s-label">Full Menu</div>
+      <h2 class="s-title">WHAT<br>WE MAKE</h2>
+    </div>
+    <div>
+      <div class="menu-note">Chicken · Beef · Shrimp · Tofu on most dishes</div>
+      <div class="menu-note2">Spice level 1–6 on everything · Ask about daily specials</div>
     </div>
   </div>
-  <div class="sig-image">
-    <img class="sig-image-main" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="Thai kitchen cooking">
-    <img class="sig-image-accent" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80" alt="Thai food close-up">
+
+  <div class="menu-body">
+
+    <div class="menu-cat">
+      <div class="cat-title">Appetizers</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Chicken Satay</span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Egg Rolls</span><span class="item-price">$4.00</span></div>
+        <div class="menu-item"><span class="item-name">Spring Rolls</span><span class="item-price">$5.00</span></div>
+        <div class="menu-item"><span class="item-name">Fried Tofu</span><span class="item-price">$5.00</span></div>
+        <div class="menu-item"><span class="item-name">Tod Mun <em>Thai fish cake</em></span><span class="item-price">$6.00</span></div>
+        <div class="menu-item"><span class="item-name">Crab Rangoons</span><span class="item-price">$6.00</span></div>
+        <div class="menu-item"><span class="item-name">Appetizer Sampler</span><span class="item-price ask">ask</span></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Thai Salads</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Papaya Salad</span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Nuau Numtok <em>grilled beef</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Yum Neau <em>beef salad</em></span><span class="item-price">$12.00</span></div>
+        <div class="menu-item"><span class="item-name">Yum Woon Sen <em>glass noodle</em></span><span class="item-price">$12.00</span></div>
+        <div class="menu-item"><span class="item-name">Yum Squid Salad</span><span class="item-price">$12.00</span></div>
+        <div class="menu-item"><span class="item-name">Yum Shrimp Salad</span><span class="item-price">$12.00</span></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Thai Soups</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Tom Yum <em>spicy lemongrass</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Tom Kha Kai <em>coconut galangal</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Chicken Noodle Soup</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Beef Noodle Soup</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">BBQ Pork Yellow Noodle Soup</span><span class="item-price">$12.00</span></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Noodle Dishes</div>
+      <div class="cat-sub">Chicken · Beef · Shrimp · Tofu</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Pad Thai <em>★ most ordered</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Pad Se-Ew <em>wide rice noodle</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Pad Kee Mao <em>drunken noodle</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Pad Woon Sen <em>glass noodle</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Pad Lard Nar <em>gravy noodle</em></span><span class="item-price ask">ask</span></div>
+      </div>
+      <div class="cat-note">Double protein +$2 — worth it</div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Thai Curry</div>
+      <div class="cat-sub">Served with steamed rice</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Red Curry</span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Green Curry</span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Yellow Curry <em>★ most popular</em></span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Panang Curry</span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Mussamun Curry</span><span class="item-price ask">ask</span></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Fried Rice</div>
+      <div class="cat-sub">Chicken · Beef · Shrimp · Tofu</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Fried Rice</span><span class="item-price ask">ask</span></div>
+        <div class="menu-item"><span class="item-name">Pineapple Fried Rice <em>★ fan fav</em></span><span class="item-price ask">ask</span></div>
+      </div>
+      <div class="cat-note">Pineapple version has cashews + raisins + egg</div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Entrees</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Basil Chicken</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Ginger Chicken</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Pad Ped Chicken</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Cashew Chicken <em>★ staff pick</em></span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Basil Beef</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Ginger Beef</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Pad Ped Beef</span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Catfish Pad Ped</span><span class="item-price">$13.50</span></div>
+        <div class="menu-item"><span class="item-name">Basil Catfish</span><span class="item-price">$14.50</span></div>
+        <div class="menu-item"><span class="item-name">Shrimp Pad Ped</span><span class="item-price">$14.50</span></div>
+        <div class="menu-item"><span class="item-name">Squid Pad Ped</span><span class="item-price">$14.50</span></div>
+        <div class="menu-item"><span class="item-name">Seafood Pad Ped</span><span class="item-price">$15.50</span></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Vegetarian</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Oriental Tofu</span><span class="item-price">$10.50</span></div>
+        <div class="menu-item"><span class="item-name">Bean Sprouts with Tofu</span><span class="item-price">$10.50</span></div>
+        <div class="menu-item"><span class="item-name">Eggplant with Basil Leaves</span><span class="item-price">$10.50</span></div>
+        <div class="menu-item"><span class="item-name">Oriental Vegetables</span><span class="item-price">$10.50</span></div>
+      </div>
+      <div class="cat-note">Tofu substitute available on any dish — just ask</div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Pho Special</div>
+      <div class="cat-sub">Beef broth · rice noodles · fresh herbs</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Xe Lua <em>house special — everything</em></span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Tai <em>rare sliced beef</em></span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Tại Sach <em>rare beef + tripe</em></span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Pho Bo Vien <em>beef meatball</em></span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Pho Rau Cai Va Dau Hu <em>veg + tofu</em></span><span class="item-price">$11.00</span></div>
+        <div class="menu-item"><span class="item-name">Pho Do Bien Hoac <em>seafood</em></span><span class="item-price">$13.00</span></div>
+        <div class="menu-item"><span class="item-name">Pho Tom <em>shrimp</em></span><span class="item-price">$11.00</span></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-title">Desserts</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Sweet Sticky Rice &amp; Mango</span><span class="item-price">$5.50</span></div>
+        <div class="menu-item"><span class="item-name">Sweet Sticky Rice &amp; Custard</span><span class="item-price">$5.50</span></div>
+      </div>
+      <div style="height:1.75rem"></div>
+      <div class="cat-title">Drinks</div>
+      <div class="menu-items">
+        <div class="menu-item"><span class="item-name">Thai Iced Tea <em>★ must try</em></span><span class="item-price">$3.00</span></div>
+        <div class="menu-item"><span class="item-name">Thai Iced Coffee</span><span class="item-price">$3.00</span></div>
+        <div class="menu-item"><span class="item-name">Iced Black Coffee</span><span class="item-price">$3.00</span></div>
+        <div class="menu-item"><span class="item-name">Hot Coffee</span><span class="item-price">$1.55</span></div>
+        <div class="menu-item"><span class="item-name">Hot Tea</span><span class="item-price">$1.45</span></div>
+        <div class="menu-item"><span class="item-name">Pepsi / Diet / Cherry Pepsi</span><span class="item-price">$2.50</span></div>
+        <div class="menu-item"><span class="item-name">Sierra Mist</span><span class="item-price">$2.50</span></div>
+        <div class="menu-item"><span class="item-name">Mountain Dew</span><span class="item-price">$2.50</span></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-section" id="reviews">
-  <div class="section-label">What People Are Saying</div>
-  <h2 class="section-title">Campus <em>Beloved</em></h2>
-  <div class="reviews-grid">
+<section id="reviews">
+  <div class="reviews-outer">
+    <div class="s-label">Google Reviews — 800+ and counting</div>
+    <h2 class="s-title">PEOPLE<br>TALK</h2>
+    <div class="reviews-wall">
 
-    <div class="review-card featured-review">
-      <div class="review-quote">"</div>
-      <p class="review-text">BEST RESTAURANT ON GREEN. period. I come here every single Sunday because my meal plan is only for 6 days of the week. Of all the 20 times I've come, I've never been disappointed.</p>
-      <div class="review-author">Claire Qin · Google Review</div>
-      <div class="review-stars">★★★★★</div>
+      <div class="rv big">
+        <div class="rv-pull">"</div>
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">BEST RESTAURANT ON GREEN. period. I live 3 min walk from this place, and I come here every single Sunday because my meal plan is only for 6 days of the week. Of all the 20 times I've come, it's consistently perfect.</div>
+        <div class="rv-author">Claire Qin — UIUC student, Local Guide</div>
+      </div>
+
+      <div class="rv med">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">This is the best place to get Thai food in this town. I dream of Bangkok Thai when I am away from Champaign-Urbana.</div>
+        <div class="rv-author">Brianna Huner</div>
+      </div>
+
+      <div class="rv sm">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">Cashew chicken is unreal delicious — best I've ever had. Recommend double chicken.</div>
+        <div class="rv-author">Jaywoo Jo</div>
+      </div>
+
+      <div class="rv wide">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">I come to homecoming each year and it's arguable that getting Bangkok Thai is my favorite part of the whole trip. I've been looking for a replacement for literal years and haven't found one.</div>
+        <div class="rv-author">Michael McGinnis</div>
+      </div>
+
+      <div class="rv narrow">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">The Yellow Curry is amazing. I haven't found any other restaurant to rival it. I would gladly eat this yellow curry for all my meals for the rest of my life.</div>
+        <div class="rv-author">Novarah Kazmi</div>
+      </div>
+
+      <div class="rv sm">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">Thai tea is perfection and the crab rangoons are some of the best I've had. Everyone is incredibly sweet.</div>
+        <div class="rv-author">Mirna Villagomez</div>
+      </div>
+
+      <div class="rv med">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">I ordered chicken fried rice that was too spicy for me and they replaced it for free even though we were willing to pay for a replacement. Amazing service.</div>
+        <div class="rv-author">Ely Thompson</div>
+      </div>
+
+      <div class="rv big">
+        <div class="rv-pull">"</div>
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">Had my meals every day at this place for the whole semester and it was always my go-to. Became friends with the owner and staff. Food is excellent and worth every penny.</div>
+        <div class="rv-author">Kaung Khant Nyein</div>
+      </div>
+
     </div>
-
-    <div class="review-card">
-      <div class="review-quote">"</div>
-      <p class="review-text">This is the best place to get Thai food in this town. I dream of Bangkok Thai when I am away from Champaign-Urbana.</p>
-      <div class="review-author">Brianna Huner · Google Review</div>
-      <div class="review-stars">★★★★★</div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-quote">"</div>
-      <p class="review-text">Cashew chicken is unreal delicious — best I've ever had. I recommend paying a few more dollars for double chicken. Green curry is also superb.</p>
-      <div class="review-author">Jaywoo Jo · Local Guide</div>
-      <div class="review-stars">★★★★★</div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-quote">"</div>
-      <p class="review-text">My favorite restaurant on campus. I come to homecoming each year and it's arguable that getting Bangkok Thai is my favorite part of the trip.</p>
-      <div class="review-author">Michael McGinnis · Google Review</div>
-      <div class="review-stars">★★★★★</div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-quote">"</div>
-      <p class="review-text">Great pho, served in big portions so you can take leftovers! Thai tea is perfection and the crab rangoons are some of the best I've had.</p>
-      <div class="review-author">Mirna Villagomez · Google Review</div>
-      <div class="review-stars">★★★★★</div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-quote">"</div>
-      <p class="review-text">The Yellow Curry is amazing! I haven't found any other restaurant to rival it. I would gladly eat this restaurant's yellow curry for all my meals for the rest of my life.</p>
-      <div class="review-author">Novarah Kazmi · Local Guide</div>
-      <div class="review-stars">★★★★★</div>
-    </div>
-
   </div>
 </section>
 
 <!-- LOCATIONS -->
-<section class="locations-section" id="locations">
-  <div>
-    <div class="section-label">Find Us</div>
-    <h2 class="section-title">Two <em>Locations</em></h2>
-    <div style="height:2rem"></div>
+<section id="locations">
+  <div class="loc-section">
+    <div class="loc-inner">
+      <div class="s-label">Where To Find Us</div>
+      <h2 class="s-title">TWO<br>SPOTS</h2>
+      <div class="loc-grid">
 
-    <div class="location-card">
-      <div class="location-tag">Main · Green Street</div>
-      <div class="location-name">410 E Green St, Champaign</div>
-      <div class="location-details">
-        <div class="location-row">
-          <span>📍</span>
-          <span>Champaign, IL 61820 · Right in the heart of campus</span>
+        <div class="loc-card">
+          <div class="loc-num" aria-hidden="true">01</div>
+          <div class="loc-name">Green Street</div>
+          <div class="loc-addr">410 E Green St · Champaign IL 61820</div>
+          <div class="loc-info">
+            <div class="loc-row"><span class="loc-key">Phone</span><a href="tel:+12179541641" style="color:var(--lime);text-decoration:none">(217) 954-1641</a></div>
+            <div class="loc-row"><span class="loc-key">Hours</span><span>Mon–Fri 11am – 9:30pm<br>Sat–Sun 11:30am – 9pm</span></div>
+            <div class="loc-row"><span class="loc-key">Service</span><span>Dine in · Take out</span></div>
+            <div class="loc-row"><span class="loc-key">Parking</span><span>Street parking on Green St and side streets</span></div>
+          </div>
+          <div class="loc-btns">
+            <a href="https://maps.google.com/?q=410+E+Green+St+Champaign+IL" class="loc-cta primary" target="_blank" rel="noopener">Get Directions</a>
+            <a href="tel:+12179541641" class="loc-cta outline">Call Us</a>
+          </div>
         </div>
-        <div class="location-row">
-          <span>📞</span>
-          <a href="tel:+12179541641" style="color:var(--gold);text-decoration:none">(217) 954-1641</a>
-        </div>
-      </div>
-      <div class="hours-grid">
-        <span class="hours-day">Mon – Fri</span><span class="hours-time">11:00 AM – 9:30 PM</span>
-        <span class="hours-day">Saturday</span><span class="hours-time">11:30 AM – 9:00 PM</span>
-        <span class="hours-day">Sunday</span><span class="hours-time">11:30 AM – 9:00 PM</span>
-      </div>
-    </div>
 
-    <div class="location-card">
-      <div class="location-tag">Location 2 · Cunningham Ave</div>
-      <div class="location-name">1104 N Cunningham Ave, Urbana</div>
-      <div class="location-details">
-        <div class="location-row">
-          <span>📍</span>
-          <span>Urbana, IL 61802</span>
+        <div class="loc-card">
+          <div class="loc-num" aria-hidden="true">02</div>
+          <div class="loc-name">Cunningham Ave</div>
+          <div class="loc-addr">1104 N Cunningham Ave · Urbana IL 61802</div>
+          <div class="loc-info">
+            <div class="loc-row"><span class="loc-key">Service</span><span>Dine in · Take out · Delivery</span></div>
+            <div class="loc-row"><span class="loc-key">Delivery</span><span>Available via GrubHub</span></div>
+          </div>
+          <div class="loc-btns">
+            <a href="https://www.grubhub.com/restaurant/bangkok-thai-restaurant-1104-n-cunningham-ave-urbana/471011" class="loc-cta primary" target="_blank" rel="noopener">Order on GrubHub</a>
+            <a href="https://maps.google.com/?q=1104+N+Cunningham+Ave+Urbana+IL" class="loc-cta outline" target="_blank" rel="noopener">Directions</a>
+          </div>
         </div>
-        <div class="location-row">
-          <span>🛵</span>
-          <span>Delivery available via GrubHub</span>
-        </div>
-      </div>
-      <div>
-        <a href="https://www.grubhub.com/restaurant/bangkok-thai-restaurant-1104-n-cunningham-ave-urbana/471011" class="order-btn-big" target="_blank" rel="noopener">Order Delivery on GrubHub →</a>
-      </div>
-    </div>
-  </div>
 
-  <div>
-    <div class="map-placeholder">
-      <svg width="100%" viewBox="0 0 500 440" xmlns="http://www.w3.org/2000/svg">
-        <rect width="500" height="440" fill="#1A1208"/>
-        <!-- Grid lines -->
-        <line x1="0" y1="120" x2="500" y2="120" stroke="#2A2010" stroke-width="1"/>
-        <line x1="0" y1="180" x2="500" y2="180" stroke="#2A2010" stroke-width="1"/>
-        <line x1="0" y1="240" x2="500" y2="240" stroke="#2A2010" stroke-width="1"/>
-        <line x1="0" y1="300" x2="500" y2="300" stroke="#2A2010" stroke-width="1"/>
-        <line x1="0" y1="360" x2="500" y2="360" stroke="#2A2010" stroke-width="1"/>
-        <line x1="100" y1="0" x2="100" y2="440" stroke="#2A2010" stroke-width="1"/>
-        <line x1="200" y1="0" x2="200" y2="440" stroke="#2A2010" stroke-width="1"/>
-        <line x1="300" y1="0" x2="300" y2="440" stroke="#2A2010" stroke-width="1"/>
-        <line x1="400" y1="0" x2="400" y2="440" stroke="#2A2010" stroke-width="1"/>
-        <!-- Green Street road -->
-        <rect x="0" y="168" width="500" height="24" rx="0" fill="#2C2010"/>
-        <text x="250" y="184" text-anchor="middle" fill="#6A5838" font-size="10" font-family="DM Sans,sans-serif" letter-spacing="5">GREEN STREET</text>
-        <!-- Buildings campus side -->
-        <rect x="110" y="80" width="70" height="80" rx="2" fill="#231A08"/>
-        <rect x="195" y="95" width="55" height="65" rx="2" fill="#231A08"/>
-        <rect x="265" y="75" width="80" height="85" rx="2" fill="#231A08"/>
-        <rect x="360" y="90" width="65" height="70" rx="2" fill="#231A08"/>
-        <!-- Buildings south -->
-        <rect x="30" y="205" width="55" height="75" rx="2" fill="#231A08"/>
-        <rect x="100" y="210" width="85" height="70" rx="2" fill="#231A08"/>
-        <rect x="200" y="205" width="65" height="75" rx="2" fill="#231A08"/>
-        <rect x="280" y="210" width="90" height="70" rx="2" fill="#231A08"/>
-        <rect x="385" y="205" width="75" height="75" rx="2" fill="#231A08"/>
-        <!-- Pin marker -->
-        <circle cx="178" cy="180" r="18" fill="#8B1A1A" opacity="0.9"/>
-        <circle cx="178" cy="180" r="10" fill="#C9921A"/>
-        <circle cx="178" cy="180" r="5" fill="#FAF6EF"/>
-        <text x="178" y="158" text-anchor="middle" fill="#FAF6EF" font-size="9.5" font-family="DM Sans,sans-serif" font-weight="500">410 E Green St</text>
-        <!-- Label -->
-        <text x="250" y="415" text-anchor="middle" fill="#3D2B0E" font-size="10" font-family="DM Sans,sans-serif" letter-spacing="3">CAMPUS MAP · CHAMPAIGN IL</text>
-      </svg>
-    </div>
-    <div style="margin-top:1.5rem;padding:1.25rem;background:#fff;border:1px solid rgba(201,146,26,0.2);border-radius:2px">
-      <div style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem">Dine In · Take Out · Delivery</div>
-      <p style="font-size:0.85rem;color:var(--muted);line-height:1.7">Walk-in welcome — no reservation needed. Street parking available on Green St and nearby. Busy during lunch rush and after games; expect a short wait at peak times.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -535,18 +563,18 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-brand">Bangkok Thai &amp; Pho 911</div>
-      <p class="footer-tagline">Authentic Thai cuisine and pho in the heart of Champaign-Urbana. A campus institution, now at two locations.</p>
-      <a href="https://www.grubhub.com/restaurant/bangkok-thai-restaurant-1104-n-cunningham-ave-urbana/471011" class="order-btn-big" target="_blank" rel="noopener">Order on GrubHub →</a>
+      <div class="footer-mark">Bangkok<br>Thai</div>
+      <div class="footer-tagline">Authentic Thai & Pho · Champaign-Urbana, IL</div>
+      <a href="https://www.grubhub.com/restaurant/bangkok-thai-restaurant-1104-n-cunningham-ave-urbana/471011" class="nav-order" style="display:inline-block;padding:0.75rem 1.5rem" target="_blank" rel="noopener">Order Delivery →</a>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
-        <li><a href="#menu">Menu</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#menu">Full Menu</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#locations">Locations</a></li>
-        <li><a href="https://bangkokthairestaurantpho911.shop/menu" target="_blank" rel="noopener">Full Menu</a></li>
+        <li><a href="https://bangkokthairestaurantpho911.shop" target="_blank" rel="noopener">Official Site</a></li>
       </ul>
     </div>
     <div>
@@ -559,8 +587,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Bangkok Thai Restaurant &amp; Pho 911 · Champaign–Urbana, IL</span>
-    <span>Made with ❤️ for the Illini community</span>
+    <span>© 2025 Bangkok Thai Restaurant & Pho 911 · Champaign–Urbana, IL</span>
+    <span>Open daily · Walk-ins welcome</span>
   </div>
 </footer>
 
